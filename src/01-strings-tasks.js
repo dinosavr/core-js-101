@@ -65,8 +65,9 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, John Doe!' => 'John Doe'
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
-function extractNameFromTemplate(/* value */) {
-  throw new Error('Not implemented');
+function extractNameFromTemplate(value) {
+  const partsOfStr = value.split(', ');
+  return partsOfStr[1].substring(0, partsOfStr[1].length - 1);
 }
 
 
@@ -95,8 +96,8 @@ function getFirstChar(value) {
  *   'cat'              => 'cat'
  *   '\tHello, World! ' => 'Hello, World!'
  */
-function removeLeadingAndTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeLeadingAndTrailingWhitespaces(value) {
+  return value.trim();
 }
 
 /**
@@ -203,6 +204,32 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(/* width, height */) {
+  /*
+  const lt = '┌';
+  const rt = '┐';
+  const lb = '└';
+  const rb = '┘';
+  const hLine = '─';
+  const vLine = '│';
+  let result = '';
+
+  for (let i = 1; i <= width; i += 1) {
+    for (let j = 1; j <= height; j += 1) {
+      if (i === 1 && j === 1) result += lt;
+      if (i === 1 && j > 1 && j < width) result += hLine;
+      if (i === 1 && j === width) result += rt + '\n';
+
+      if (i > 1 && i < height && j === 1) result += vLine;
+      if (i > 1 && i < height && j > 1 && j < width) result += ' ';
+      if (i > 1 && i < height && j === width) result += vLine + '\n';
+
+      if (i === height && j === 1) result += lb;
+      if (i === height && j > 1 && j < width) result += hLine;
+      if (i === height && j === width) result += rb + '\n';
+    }
+  }
+  return result;
+  */
   throw new Error('Not implemented');
 }
 
@@ -246,8 +273,9 @@ function encodeToRot13(str) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  if (typeof value === 'string' || value instanceof String) return true;
+  return false;
 }
 
 
