@@ -303,8 +303,17 @@ function isString(value) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(/* value */) {
-  throw new Error('Not implemented');
+function getCardId(value) {
+  const typeCard1 = "'A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',";
+  const typeCard2 = "'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',";
+  const typeCard3 = "'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',";
+  const typeCard4 = "'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠',";
+  const allCards = `${typeCard1}${typeCard2}${typeCard3}${typeCard4}`;
+  const allCardsClear = allCards.split("'").join('');
+
+  const array = allCardsClear.split(',');
+  const answer = array.indexOf(value);
+  return answer;
 }
 
 
